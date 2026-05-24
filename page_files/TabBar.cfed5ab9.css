@@ -1,0 +1,270 @@
+:root {
+  --bg-primary: #1672f6;
+  --bg-gray: #f1f3f5;
+  --gridsPaddingNums: calc(var(--gridsNum) - 1);
+  --gridsTotalColmnWidth: calc(100vw - 2 * var(--gridPadding) - var(--gridsPaddingNums) * var(--gridsGap));
+  --gridWidth: calc(var(--gridsTotalColmnWidth) / var(--gridsNum));
+}
+@media screen and (max-width: 600px) {
+  :root {
+    --gridPadding: 16px;
+    --gridsGap: 8px;
+    --gridsNum: 4;
+    --max8Column: calc(4 * var(--gridWidth) + 3 * var(--gridsGap));
+    --3-6-8Column: calc(3 * var(--gridWidth) + 3 * var(--gridsGap));
+    --isXS: 1;
+    --isSM: 0;
+    --isMD: 0;
+  }
+}
+@media screen and (min-width: 600px) {
+  :root {
+    --gridPadding: 24px;
+    --gridsGap: 12px;
+    --gridsNum: 8;
+    --max8Column: calc(8 * var(--gridWidth) + 7 * var(--gridsGap));
+    --3-6-8Column: calc(6 * var(--gridWidth) + 5 * var(--gridsGap));
+    --isXS: 0;
+    --isSM: 1;
+    --isMD: 0;
+  }
+}
+@media screen and (min-width: 840px) and (min-aspect-ratio: 1) {
+  :root {
+    --gridPadding: 32px;
+    --gridsGap: 16px;
+    --gridsNum: 12;
+    --max8Column: calc(8 * var(--gridWidth) + 7 * var(--gridsGap));
+    --3-6-8Column: calc(8 * var(--gridWidth) + 7 * var(--gridsGap));
+    --isXS: 0;
+    --isSM: 0;
+    --isMD: 1;
+  }
+}
+@font-face {
+  font-family: "HarmonyOS_Sans_Bold";
+  src: url("https://sxzcdn.shixizhi.huawei.com/lib/font/HarmonyOS_Sans/HarmonyOS_Sans/HarmonyOS_Sans_Bold.ttf");
+}
+@font-face {
+  font-family: "HarmonyOS_Sans_Medium";
+  src: url("https://sxzcdn.shixizhi.huawei.com/lib/font/HarmonyOS_Sans/HarmonyOS_Sans/HarmonyOS_Sans_Medium.ttf");
+}
+@font-face {
+  font-family: "HarmonyOS_Sans_Regular";
+  src: url("https://sxzcdn.shixizhi.huawei.com/lib/font/HarmonyOS_Sans/HarmonyOS_Sans/HarmonyOS_Sans_Regular.ttf");
+}
+@font-face {
+  font-family: "HarmonyOS_Sans_Light";
+  src: url("https://sxzcdn.shixizhi.huawei.com/lib/font/HarmonyOS_Sans/HarmonyOS_Sans/HarmonyOS_Sans_Light.ttf");
+}
+@font-face {
+  font-family: "鸿蒙黑体";
+  src: url("https://sxzcdn.shixizhi.huawei.com/lib/font/HarmonyOS_Sans/HarmonyOS_Sans/HarmonyOS_Sans_Medium.ttf");
+}
+@font-face {
+  font-family: "HarmonyOS Sans";
+  src: url("https://sxzcdn.shixizhi.huawei.com/lib/font/HarmonyOS_Sans/HarmonyOS_Sans/HarmonyOS_Sans_Regular.ttf");
+}
+@font-face {
+  font-family: "HarmonyOS Sans SC";
+  src: url("https://sxzcdn.shixizhi.huawei.com/lib/font/HarmonyOS_Sans/HarmonyOS_Sans/HarmonyOS_Sans_Regular.ttf");
+}
+@font-face {
+  font-family: "DIN Condensed";
+  src: url("https://sxzcdn.shixizhi.huawei.com/lib/DIN-Condensed.ttf");
+}
+:root:root {
+  --van-button-primary-background: #1672F6;
+  --van-button-small-padding: 0 16px;
+  --van-button-small-font-size: 14px;
+  --van-padding-md: 0;
+}
+html {
+  font-size: 16PX !important;
+}
+body * {
+  font-family: "鸿蒙黑体", "Microsoft Yahei", "PingFang SC", Arial, Helvetica, sans-serif;
+}
+.hm-padding {
+  padding: 0 16px;
+}
+.hm-margin {
+  margin: 0 16px;
+}
+@media screen and (min-width: 600px) and (max-width: 840) {
+  .hm-padding {
+    padding: 0 24px;
+  }
+  .hm-margin {
+    margin: 0 24px;
+  }
+}
+@media screen and (min-width: 840px) {
+  .hm-padding {
+    padding: 0 32px;
+  }
+  .hm-margin {
+    margin: 0 32px;
+  }
+}
+.hm-confirm.van-popup.van-dialog:not(.van-toast) {
+  width: 91vw;
+  max-width: 400px;
+  padding-top: 24px;
+  padding-bottom: 16px;
+  border-radius: 32px;
+  background-color: #fff;
+}
+.hm-confirm.van-popup.van-dialog:not(.van-toast) .van-dialog__content {
+  display: block;
+  min-height: 32px;
+  margin-bottom: 8px;
+}
+.hm-confirm.van-popup.van-dialog:not(.van-toast) .van-dialog__message {
+  padding: 0 24px;
+  line-height: 22px;
+  color: #191919;
+  font-size: 16px;
+  font-weight: 500;
+  text-align: center;
+}
+.hm-confirm.van-popup.van-dialog:not(.van-toast) .van-dialog__footer {
+  padding: 0 16px;
+}
+.hm-confirm.van-popup.van-dialog:not(.van-toast) .van-dialog__footer.van-hairline--top::after {
+  top: -4px;
+  left: 50%;
+  border: none;
+  width: 1px;
+  height: 48px;
+  background-color: rgba(0, 0, 0, 0.05);
+}
+.hm-confirm.van-popup.van-dialog:not(.van-toast) .van-dialog__footer button {
+  height: 40px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 22px;
+  text-align: center;
+}
+.hm-confirm.van-popup.van-dialog:not(.van-toast) .van-dialog__footer button:last-child:after {
+  display: none;
+}
+.hm-confirm.van-popup.van-dialog:not(.van-toast).hm-confirm-btn-reverse .van-dialog__footer {
+  flex-flow: row-reverse;
+}
+.hm-confirm-jumplink.van-popup.van-dialog:not(.van-toast) {
+  width: 91vw;
+  max-width: 400px;
+  background-color: white;
+  padding: 0 24px;
+}
+.hm-confirm-jumplink.van-popup.van-dialog:not(.van-toast) .van-dialog__header {
+  padding-top: 0;
+  height: 56px;
+  font-size: 20px;
+  line-height: 56px;
+}
+.hm-confirm-jumplink.van-popup.van-dialog:not(.van-toast) .van-dialog__message {
+  padding: 0 0 8px;
+}
+.hm-confirm-jumplink.van-popup.van-dialog:not(.van-toast) .van-dialog__footer.van-hairline--top:after {
+  border: none;
+}
+.hm-confirm-jumplink.van-popup.van-dialog:not(.van-toast) .van-dialog__footer .van-hairline--left:after {
+  border: none;
+}
+.hm-toast.van-popup.van-toast {
+  bottom: 80px;
+  min-width: 60px;
+  max-width: 80vw;
+  padding: 8px 16px;
+  color: #191919;
+  background: #fff;
+  font-size: 14px;
+  line-height: 20px;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.1);
+  transform: translateY(-20px);
+}
+@media (min-width: 600px) {
+  .hm-toast.van-popup.van-toast {
+    max-width: 400px;
+  }
+}
+:root,:host{--van-list-text-color: var(--van-text-color-2);--van-list-text-font-size: var(--van-font-size-md);--van-list-text-line-height: 50px;--van-list-loading-icon-size: 16px}.van-list__loading,.van-list__finished-text,.van-list__error-text{color:var(--van-list-text-color);font-size:var(--van-list-text-font-size);line-height:var(--van-list-text-line-height);text-align:center}.van-list__placeholder{height:0;pointer-events:none}.van-list__loading-icon .van-loading__spinner{width:var(--van-list-loading-icon-size);height:var(--van-list-loading-icon-size)}
+.hm-tab-bar-wrapper[data-v-1b06e2fe] {
+  height: 48px;
+  box-sizing: content-box;
+}
+.hm-tab-bar-pad.fixed[data-v-1b06e2fe],
+.hm-tab-bar-pad.absolute[data-v-1b06e2fe] {
+  z-index: 99;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+.hm-tab-bar-pad.fixed[data-v-1b06e2fe] {
+  position: fixed;
+}
+.hm-tab-bar-pad.absolute[data-v-1b06e2fe] {
+  position: absolute;
+}
+.hm-tab-bar[data-v-1b06e2fe] {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 48px;
+  margin: 0 var(--gridPadding);
+}
+.hm-tab-bar .tab-title[data-v-1b06e2fe] {
+  color: rgba(0, 0, 0, 0.9);
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 26px;
+  text-align: center;
+}
+.hm-tab-bar .icon-left[data-v-1b06e2fe],
+.hm-tab-bar .icon-right[data-v-1b06e2fe] {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.hm-tab-bar .icon-left[data-v-1b06e2fe] {
+  display: flex;
+  align-items: center;
+  left: 0;
+  height: 40px;
+}
+.hm-tab-bar .icon-left .btn[data-v-1b06e2fe] {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
+.hm-tab-bar .icon-left .back[data-v-1b06e2fe] {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+.hm-tab-bar .icon-left .icon-kf[data-v-1b06e2fe] {
+  width: 24px;
+  height: 24px;
+  margin-left: 12px;
+}
+.hm-tab-bar .icon-right[data-v-1b06e2fe] {
+  right: 0;
+}
+.hm-tab-bar .btn-icon[data-v-1b06e2fe] {
+  border: none;
+}
+.hm-tab-bar.title-left[data-v-1b06e2fe] {
+  justify-content: flex-start;
+}
+.hm-tab-bar.title-left .tab-title[data-v-1b06e2fe] {
+  margin-left: 12px;
+  text-align: left;
+}
+.hm-tab-bar.title-left .icon-left[data-v-1b06e2fe] {
+  position: static;
+  transform: none;
+}

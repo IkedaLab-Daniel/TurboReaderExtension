@@ -1,0 +1,14 @@
+{
+  "manifest_version": 3,
+  "name": "TurboReaderExtension",
+  "version": "1.0.0",
+  "description": "Complete videos and move to the next section on demand.",
+  "permissions": ["activeTab", "scripting"],
+  "host_permissions": ["<all_urls>"],
+  "action": {
+    "default_title": "TurboReader: Complete and Next"
+  },
+  "background": {
+    "service_worker": "background.js"
+  }
+}
