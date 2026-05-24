@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>TurboReader</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <main class="card">
+      <div class="badge">Ready</div>
+      <header class="hero">
+        <h1>TurboReader</h1>
+        <p>Complete video lessons and glide to the next section.</p>
+      </header>
+
+      <section class="fields">
+        <label class="field">
+          <span>Next selector</span>
+          <input id="selector" type="text" autocomplete="off" spellcheck="false" value=".next" />
+        </label>
+
+        <label class="field">
+          <span>Delay before next</span>
+          <div class="range-row">
+            <input id="delay" type="range" min="0" max="10000" step="500" value="3000" />
+            <span id="delayValue">3.0s</span>
+          </div>
+        </label>
+      </section>
+
+      <section class="actions">
+        <button id="runButton" class="primary">Run now</button>
+        <button id="saveButton" class="ghost">Save</button>
+      </section>
+
+      <p id="status" class="status">Settings load when the popup opens.</p>
+      <p class="tip">Tip: click the icon again to re-run on the next section.</p>
+    </main>
+
+    <script src="popup.js"></script>
+  </body>
+</html>

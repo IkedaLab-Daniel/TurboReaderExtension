@@ -1,22 +1,68 @@
-const NEXT_SELECTOR = ".next";
-const DELAY_MS = 3000;
+const DEFAULT_CONFIG = {
+  nextSelector: ".next",
+  delayMs: 3000,
+};
 
 chrome.action.onClicked.addListener(async (tab) => {
   if (!tab || !tab.id) {
     return;
   }
 
+  await executeTurbo(tab.id, DEFAULT_CONFIG);
+});
+
+chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+  if (!message || message.type !== "run") {
+    return;
+  }
+
+  const tabId = Number.isFinite(message.tabId)
+    ? message.tabId
+    : sender && sender.tab && Number.isFinite(sender.tab.id)
+      ? sender.tab.id
+      : null;
+
+  if (!tabId) {
+    sendResponse({ ok: false, error: "No active tab available." });
+    return;
+  }
+
+  const config = normalizeConfig(message.config);
+  executeTurbo(tabId, config)
+    .then(() => sendResponse({ ok: true }))
+    .catch((err) => {
+      const reason = err && err.message ? err.message : "Injection failed.";
+      console.error("TurboReader: injection failed", err);
+      sendResponse({ ok: false, error: reason });
+    });
+
+  return true;
+});
+
+function normalizeConfig(config) {
+  const nextSelector = config && typeof config.nextSelector === "string" && config.nextSelector.trim()
+    ? config.nextSelector.trim()
+    : DEFAULT_CONFIG.nextSelector;
+  const delayMs = config && Number.isFinite(config.delayMs)
+    ? config.delayMs
+    : DEFAULT_CONFIG.delayMs;
+
+  return { nextSelector, delayMs };
+}
+
+async function executeTurbo(tabId, config) {
   try {
     await chrome.scripting.executeScript({
-      target: { tabId: tab.id, allFrames: true },
-      args: [{ nextSelector: NEXT_SELECTOR, delayMs: DELAY_MS }],
+      target: { tabId, allFrames: true },
+      args: [config],
       func: runTurboReader,
       world: "MAIN",
     });
   } catch (err) {
     console.error("TurboReader: injection failed", err);
+    throw err;
   }
-});
+}
 
 function runTurboReader(options) {
   const config = options || {};
